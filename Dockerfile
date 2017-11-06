@@ -1,7 +1,5 @@
 FROM php:7-fpm
 
-USER root
-
 # Install node.js for api docs
 RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
         apt-get install -y nodejs \
