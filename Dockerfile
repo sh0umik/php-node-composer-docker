@@ -5,9 +5,8 @@ RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
         apt-get install -y nodejs \
         && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install composer
-RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/local/bin/php
-RUN /bin/mv composer.phar /usr/local/bin/composer
+# Install Composer
+RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 #Install Docker
 RUN curl -fsSL https://get.docker.com/ | sh
@@ -15,3 +14,4 @@ RUN curl -fsSL https://get.docker.com/ | sh
 RUN php -v
 RUN node -v
 RUN docker -v
+ENV COMPOSER_ALLOW_SUPERUSER 1
