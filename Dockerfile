@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7-jessie
 
 # Install node.js for api docs
 RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
@@ -14,4 +14,3 @@ RUN curl -fsSL https://get.docker.com/ | sh
 RUN php -v
 RUN node -v
 RUN docker -v
-ENV COMPOSER_ALLOW_SUPERUSER 1
