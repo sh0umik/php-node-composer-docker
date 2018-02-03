@@ -3,7 +3,7 @@ FROM php:7-jessie
 ADD php.ini /usr/local/etc/php/
 # Install node.js for api docs
 RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-        apt-get install -y nodejs git libreadline-dev \
+        apt-get install -y zip unzip nodejs git libreadline-dev \
         && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
