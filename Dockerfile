@@ -4,7 +4,8 @@ ADD php.ini /usr/local/etc/php/
 # Install node.js for api docs
 RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
         apt-get install -y zip unzip automake nodejs git libreadline-dev \
-        && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
+        && apt-get -y autoremove dh-autoreconf libpng-dev autoconf automake make g++ libtool nasm \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
 RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
