@@ -7,6 +7,11 @@ RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
         && apt-get -y autoremove dh-autoreconf libpng-dev autoconf automake make g++ libtool nasm \
         && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get -y install yarn
+
 # Install pngquant-bin
 RUN npm install pngquant-bin
 
