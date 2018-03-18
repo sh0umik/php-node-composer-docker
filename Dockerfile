@@ -13,7 +13,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get update && apt-get -y install yarn
 
 # Install pngquant-bin
-RUN npm install pngquant-bin
+RUN npm install apidoc -g
 
 # Install Composer
 RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
