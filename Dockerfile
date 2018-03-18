@@ -2,9 +2,9 @@ FROM php:7-jessie
 
 ADD php.ini /usr/local/etc/php/
 # Install node.js for api docs
-RUN  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+RUN  curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
         apt-get install -y zip unzip automake nodejs git libreadline-dev \
-        && apt-get -y autoremove dh-autoreconf libpng-dev autoconf automake make g++ libtool nasm \
+        && apt-get install -y dh-autoreconf libpng-dev autoconf automake make g++ libtool nasm \
         && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Yarn
@@ -14,6 +14,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 # Install pngquant-bin
 RUN npm install apidoc -g
+
+RUN npm install pngquant-bin --save
 
 # Install Composer
 RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
